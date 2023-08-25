@@ -9,12 +9,11 @@ import SwiftUI
 
 @main
 struct VenusWeatherMacApp: App {
-    let persistenceController = PersistenceController.shared
-
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .frame(minWidth: 900, minHeight: 800)
         }
     }
 }

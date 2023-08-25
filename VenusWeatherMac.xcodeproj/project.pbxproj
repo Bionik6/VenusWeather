@@ -7,23 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4019215F2A996512008E8BB4 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4019215E2A996512008E8BB4 /* Data.swift */; };
+		401921622A9965F0008E8BB4 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401921612A9965F0008E8BB4 /* Utils.swift */; };
+		401921642A996727008E8BB4 /* VenusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401921632A996727008E8BB4 /* VenusModel.swift */; };
+		4050283F2A93DF2700247F32 /* DailyForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4050283E2A93DF2700247F32 /* DailyForecastView.swift */; };
+		405028432A93E98300247F32 /* HourlyForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405028422A93E98300247F32 /* HourlyForecastView.swift */; };
 		4094C8E82A915BF2006EBE87 /* VenusWeatherMacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4094C8E72A915BF2006EBE87 /* VenusWeatherMacApp.swift */; };
 		4094C8EA2A915BF2006EBE87 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4094C8E92A915BF2006EBE87 /* ContentView.swift */; };
 		4094C8EC2A915BF3006EBE87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4094C8EB2A915BF3006EBE87 /* Assets.xcassets */; };
 		4094C8EF2A915BF3006EBE87 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4094C8EE2A915BF3006EBE87 /* Preview Assets.xcassets */; };
-		4094C8F12A915BF3006EBE87 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4094C8F02A915BF3006EBE87 /* Persistence.swift */; };
-		4094C8F42A915BF3006EBE87 /* VenusWeatherMac.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4094C8F22A915BF3006EBE87 /* VenusWeatherMac.xcdatamodeld */; };
+		4094C8FC2A9170ED006EBE87 /* MainContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4094C8FB2A9170ED006EBE87 /* MainContentView.swift */; };
+		4094C8FF2A9176F0006EBE87 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4094C8FE2A9176F0006EBE87 /* Fonts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4019215E2A996512008E8BB4 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		401921612A9965F0008E8BB4 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		401921632A996727008E8BB4 /* VenusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenusModel.swift; sourceTree = "<group>"; };
+		4050283E2A93DF2700247F32 /* DailyForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecastView.swift; sourceTree = "<group>"; };
+		405028422A93E98300247F32 /* HourlyForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyForecastView.swift; sourceTree = "<group>"; };
 		4094C8E42A915BF2006EBE87 /* VenusWeatherMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VenusWeatherMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4094C8E72A915BF2006EBE87 /* VenusWeatherMacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenusWeatherMacApp.swift; sourceTree = "<group>"; };
 		4094C8E92A915BF2006EBE87 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4094C8EB2A915BF3006EBE87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4094C8EE2A915BF3006EBE87 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		4094C8F02A915BF3006EBE87 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		4094C8F32A915BF3006EBE87 /* VenusWeatherMac.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VenusWeatherMac.xcdatamodel; sourceTree = "<group>"; };
 		4094C8F52A915BF3006EBE87 /* VenusWeatherMac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VenusWeatherMac.entitlements; sourceTree = "<group>"; };
+		4094C8FB2A9170ED006EBE87 /* MainContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentView.swift; sourceTree = "<group>"; };
+		4094C8FE2A9176F0006EBE87 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +47,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4019215D2A9964FF008E8BB4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4019215E2A996512008E8BB4 /* Data.swift */,
+				401921632A996727008E8BB4 /* VenusModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		401921602A9965DF008E8BB4 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				401921612A9965F0008E8BB4 /* Utils.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		401921652A996973008E8BB4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4050283E2A93DF2700247F32 /* DailyForecastView.swift */,
+				405028422A93E98300247F32 /* HourlyForecastView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		4094C8DB2A915BF2006EBE87 = {
 			isa = PBXGroup;
 			children = (
@@ -56,12 +92,15 @@
 		4094C8E62A915BF2006EBE87 /* VenusWeatherMac */ = {
 			isa = PBXGroup;
 			children = (
+				401921652A996973008E8BB4 /* Views */,
+				401921602A9965DF008E8BB4 /* Helpers */,
+				4019215D2A9964FF008E8BB4 /* Models */,
+				4094C8FD2A9176DF006EBE87 /* DesignSystem */,
 				4094C8E72A915BF2006EBE87 /* VenusWeatherMacApp.swift */,
 				4094C8E92A915BF2006EBE87 /* ContentView.swift */,
+				4094C8FB2A9170ED006EBE87 /* MainContentView.swift */,
 				4094C8EB2A915BF3006EBE87 /* Assets.xcassets */,
-				4094C8F02A915BF3006EBE87 /* Persistence.swift */,
 				4094C8F52A915BF3006EBE87 /* VenusWeatherMac.entitlements */,
-				4094C8F22A915BF3006EBE87 /* VenusWeatherMac.xcdatamodeld */,
 				4094C8ED2A915BF3006EBE87 /* Preview Content */,
 			);
 			path = VenusWeatherMac;
@@ -73,6 +112,14 @@
 				4094C8EE2A915BF3006EBE87 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4094C8FD2A9176DF006EBE87 /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				4094C8FE2A9176F0006EBE87 /* Fonts.swift */,
+			);
+			path = DesignSystem;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,10 +192,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4094C8F12A915BF3006EBE87 /* Persistence.swift in Sources */,
+				4050283F2A93DF2700247F32 /* DailyForecastView.swift in Sources */,
 				4094C8EA2A915BF2006EBE87 /* ContentView.swift in Sources */,
-				4094C8F42A915BF3006EBE87 /* VenusWeatherMac.xcdatamodeld in Sources */,
+				401921622A9965F0008E8BB4 /* Utils.swift in Sources */,
 				4094C8E82A915BF2006EBE87 /* VenusWeatherMacApp.swift in Sources */,
+				405028432A93E98300247F32 /* HourlyForecastView.swift in Sources */,
+				4094C8FF2A9176F0006EBE87 /* Fonts.swift in Sources */,
+				401921642A996727008E8BB4 /* VenusModel.swift in Sources */,
+				4094C8FC2A9170ED006EBE87 /* MainContentView.swift in Sources */,
+				4019215F2A996512008E8BB4 /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +334,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Venus Weather";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -309,6 +363,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Venus Weather";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -344,19 +400,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		4094C8F22A915BF3006EBE87 /* VenusWeatherMac.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				4094C8F32A915BF3006EBE87 /* VenusWeatherMac.xcdatamodel */,
-			);
-			currentVersion = 4094C8F32A915BF3006EBE87 /* VenusWeatherMac.xcdatamodel */;
-			path = VenusWeatherMac.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 4094C8DC2A915BF2006EBE87 /* Project object */;
 }
