@@ -20,7 +20,9 @@ struct MainContentView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: BETWEEN_SECTION_SPACING) {
+
                 HEADER
+
                 HStack {
                     ScrollView(.horizontal, showsIndicators: false) {
                         MAIN_CARD
@@ -29,57 +31,9 @@ struct MainContentView: View {
                     }
                 }
 
-                VStack(alignment: .leading, spacing: TITLE_PADDING) {
-                    Text("10 days forecast".uppercased())
-                        .font(.mainBold)
+                TEN_DAYS_FORECAST_VIEW
 
-                    ScrollView(.horizontal) {
-                        LazyHStack(spacing: 10) {
-                            ForEach(model.dailyForecasts) { forecast in
-                                Button {
-                                    Task { await model.getHourlyForecastSelectedLocation(within: forecast.date) }
-                                } label: {
-                                    DailyForecastView(dailyForecast: forecast)
-                                }
-                                .buttonStyle(.plain)
-                            }
-                        }
-                    }
-                    .frame(maxHeight: 200).fixedSize(horizontal: false, vertical: true)
-                    .scrollIndicators(.hidden)
-
-                    VStack(spacing: 0) {
-                        VStack(spacing: 0) {
-                            HStack {
-                                Picker("", selection: self.$selection) {
-                                    Text("Summary").tag(1)
-                                    Text("Daily").tag(2)
-                                }
-                                .font(.subTextBold)
-                                .pickerStyle(.segmented)
-                                .frame(maxWidth: 250)
-                                .padding(.vertical, 12)
-                                .padding(.leading, 12)
-                                Spacer()
-                            }
-                            Divider()
-                        }
-                        ScrollView(.horizontal) {
-                            LazyHStack(spacing: 0) {
-                                ForEach(model.hourlyForecasts) {
-                                    HourlyForecastView(hourlyForecast: $0)
-                                }
-                            }
-                        }
-                        .frame(maxHeight: 324).fixedSize(horizontal: false, vertical: true)
-                        .scrollIndicators(.hidden)
-                    }
-                    .background(
-                        LinearGradient(gradient: Gradient(colors: [.primary.opacity(0.05), .primary.opacity(0.1)]), startPoint: .top, endPoint: .bottom)
-                    )
-                    .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-                }
-
+                HOURLY_FORECAST_VIEW
             }
             .foregroundColor(.primary)
             .frame(maxWidth: 1200)
@@ -108,10 +62,53 @@ struct MainContentView: View {
                 Image(systemName: "house.circle")
                     .font(.largeTitle)
                     .symbolVariant(.fill)
-            }.buttonStyle(.plain)
+            }
+            .buttonStyle(.plain)
         }
-        .padding(.bottom, 24)
         .frame(maxWidth: .infinity, alignment: .leading)
+    }
+
+    private var TEN_DAYS_FORECAST_VIEW: some View {
+        VStack(alignment: .leading, spacing: TITLE_PADDING) {
+            Text("10 days forecast".uppercased())
+                .font(.mainBold)
+
+            ScrollView(.horizontal) {
+                LazyHStack(spacing: 10) {
+                    ForEach(model.dailyForecasts) { forecast in
+                        Button {
+                            Task { await model.getHourlyForecastSelectedLocation(within: forecast.date) }
+                        } label: {
+                            DailyForecastView(dailyForecast: forecast)
+                        }
+                        .buttonStyle(.plain)
+                    }
+                }
+            }
+            .frame(maxHeight: 200).fixedSize(horizontal: false, vertical: true)
+            .scrollIndicators(.hidden)
+        }
+    }
+
+    private var HOURLY_FORECAST_VIEW: some View {
+        VStack(alignment: .leading, spacing: TITLE_PADDING) {
+            Text("Hourly forecast".uppercased())
+                .font(.mainBold)
+
+            ScrollView(.horizontal) {
+                LazyHStack(spacing: 0) {
+                    ForEach(model.hourlyForecasts) {
+                        HourlyForecastView(hourlyForecast: $0)
+                    }
+                }
+            }
+            .frame(maxHeight: 324).fixedSize(horizontal: false, vertical: true)
+            .scrollIndicators(.hidden)
+            .background(
+                LinearGradient(gradient: Gradient(colors: [.primary.opacity(0.05), .primary.opacity(0.1)]), startPoint: .top, endPoint: .bottom)
+            )
+            .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+        }
     }
 
     private var MAIN_CARD: some View {

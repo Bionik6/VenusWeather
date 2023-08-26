@@ -11,18 +11,21 @@ import CoreLocation
 
 @MainActor
 final class VenusModel: ObservableObject {
+    private(set) var service = WeatherService.shared
+
+    private var selectedLocation: CLLocation? = CLLocation(
+        latitude: 14.77943584488948,
+        longitude: -17.370824952178218
+    )
 
     @Published var searchText = ""
-    @Published var selectedLocation: CLLocation? = CLLocation(latitude: 14.77943584488948, longitude: -17.370824952178218)
 
     @Published private(set) var currentWeather: CurrentWeather?
-    @Published private(set) var hourlyForecasts: [HourlyForecast] = []
     @Published private(set) var dailyForecasts: [DailyForecast] = []
+    @Published private(set) var hourlyForecasts: [HourlyForecast] = []
 
     @Published private(set) var dailyForecast: DailyForecast?
     @Published private(set) var dateHourlyForecasts: [HourlyForecast] = []
-
-    private let service = WeatherService.shared
 
     func getForecastForSelectedLocation() async {
         guard let selectedLocation else { return }

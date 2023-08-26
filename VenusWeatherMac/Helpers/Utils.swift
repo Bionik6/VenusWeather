@@ -8,7 +8,7 @@
 import Foundation
 
 let TITLE_PADDING: CGFloat = 16
-let BETWEEN_SECTION_SPACING: CGFloat = 28
+let BETWEEN_SECTION_SPACING: CGFloat = 32
 let BOX_PADDING: CGFloat = 16
 
 func format(temperature: Measurement<UnitTemperature>) -> String {
@@ -38,9 +38,14 @@ func format(date: Date) -> String {
     return formatter.string(from: date)
 }
 
-func format(precipitationChance: Double) -> String {
+func formatToPercent(value: Double) -> String {
     let formatter = NumberFormatter()
     formatter.numberStyle = .percent
-    let number = NSNumber(value: precipitationChance)
+    let number = NSNumber(value: value)
     return formatter.string(from: number) ?? ""
+}
+
+func format(pressure: Measurement<UnitPressure>) -> String {
+    let intValue = Int(pressure.value)
+    return "\(intValue) mb"
 }
