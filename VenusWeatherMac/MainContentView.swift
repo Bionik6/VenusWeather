@@ -22,8 +22,10 @@ struct MainContentView: View {
             VStack(alignment: .leading, spacing: BETWEEN_SECTION_SPACING) {
                 HEADER
                 HStack {
-                    MAIN_CARD
-                    VStack {
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        MAIN_CARD
+                        VStack {
+                        }
                     }
                 }
 
@@ -33,8 +35,13 @@ struct MainContentView: View {
 
                     ScrollView(.horizontal) {
                         LazyHStack(spacing: 10) {
-                            ForEach(model.dailyForecasts) {
-                                DailyForecastView(dailyForecast: $0)
+                            ForEach(model.dailyForecasts) { forecast in
+                                Button {
+                                    Task { await model.getHourlyForecastSelectedLocation(within: forecast.date) }
+                                } label: {
+                                    DailyForecastView(dailyForecast: forecast)
+                                }
+                                .buttonStyle(.plain)
                             }
                         }
                     }
@@ -77,9 +84,6 @@ struct MainContentView: View {
             .foregroundColor(.primary)
             .frame(maxWidth: 1200)
             .padding(16)
-            .task {
-                await model.weather(for: CLLocation(latitude: 14.77943584488948, longitude: -17.370824952178218))
-            }
         }
 
     }
@@ -103,6 +107,7 @@ struct MainContentView: View {
             Button(action: { }) {
                 Image(systemName: "house.circle")
                     .font(.largeTitle)
+                    .symbolVariant(.fill)
             }.buttonStyle(.plain)
         }
         .padding(.bottom, 24)
@@ -118,6 +123,7 @@ struct MainContentView: View {
             HStack(spacing: 24) {
                 Image(systemName: model.currentWeather?.symbolName ?? "cloud.sun.fill")
                     .symbolRenderingMode(.multicolor)
+                    .symbolVariant(.fill)
                     .font(.system(size: 80))
                     .foregroundStyle(.primary)
                 Group {

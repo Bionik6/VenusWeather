@@ -17,15 +17,20 @@ struct DailyForecastView: View {
 
     var body: some View {
         VStack(spacing: 12) {
-            Text(dailyForecast.date.formatted(date: .abbreviated, time: .omitted))
+            Text(format(date: dailyForecast.date))
                 .font(.h6)
             HStack(spacing: 20) {
                 Image(systemName: dailyForecast.imageName)
                     .font(.weatherIconBig)
+                    .symbolVariant(.fill)
                     .symbolRenderingMode(.multicolor)
                 VStack(spacing: 20) {
-                    Text(dailyForecast.highTempterature).font(.h6Medium)
-                    Text(dailyForecast.lowTemperature).font(.h6)
+                    Text(dailyForecast.highTempterature)
+                        .font(.h6Medium)
+                        .help("High temperature")
+                    Text(dailyForecast.lowTemperature)
+                        .font(.h6)
+                        .help("Low temperature")
                 }
             }
         }

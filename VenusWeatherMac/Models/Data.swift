@@ -43,9 +43,11 @@ extension DailyForecast {
 struct HourlyForecast: Identifiable {
     let id: String
     let date: Date
+    let wind: String
     let imageName: String
     let condition: String
     let temperature: String
+    let precipitationChance: String
 }
 
 extension HourlyForecast {
@@ -53,15 +55,19 @@ extension HourlyForecast {
         self.id = UUID().uuidString
         self.date = hourlyForecast.date
         self.imageName = hourlyForecast.symbolName
+        self.wind = hourlyForecast.wind.speed.formatted()
         self.condition = hourlyForecast.condition.description
         self.temperature = format(temperature: hourlyForecast.temperature)
+        self.precipitationChance = format(precipitationChance: hourlyForecast.precipitationChance)
     }
 
     static let dummy = HourlyForecast(
         id: UUID().uuidString,
         date: .now,
-        imageName: "cloud.sun.bolt.fill",
-        condition: "Partly cloudy",
-        temperature: "28.0º"
+        wind: "13km/h",
+        imageName: "8%",
+        condition: "cloud.sun.bolt.fill",
+        temperature: "Partly cloudy",
+        precipitationChance: "28.0º"
     )
 }

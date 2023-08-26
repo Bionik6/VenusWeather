@@ -10,6 +10,7 @@
 		4019215F2A996512008E8BB4 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4019215E2A996512008E8BB4 /* Data.swift */; };
 		401921622A9965F0008E8BB4 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401921612A9965F0008E8BB4 /* Utils.swift */; };
 		401921642A996727008E8BB4 /* VenusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401921632A996727008E8BB4 /* VenusModel.swift */; };
+		401921672A9A4C5A008E8BB4 /* HourlyForecastRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401921662A9A4C5A008E8BB4 /* HourlyForecastRow.swift */; };
 		4050283F2A93DF2700247F32 /* DailyForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4050283E2A93DF2700247F32 /* DailyForecastView.swift */; };
 		405028432A93E98300247F32 /* HourlyForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405028422A93E98300247F32 /* HourlyForecastView.swift */; };
 		4094C8E82A915BF2006EBE87 /* VenusWeatherMacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4094C8E72A915BF2006EBE87 /* VenusWeatherMacApp.swift */; };
@@ -24,6 +25,7 @@
 		4019215E2A996512008E8BB4 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		401921612A9965F0008E8BB4 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		401921632A996727008E8BB4 /* VenusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenusModel.swift; sourceTree = "<group>"; };
+		401921662A9A4C5A008E8BB4 /* HourlyForecastRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyForecastRow.swift; sourceTree = "<group>"; };
 		4050283E2A93DF2700247F32 /* DailyForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecastView.swift; sourceTree = "<group>"; };
 		405028422A93E98300247F32 /* HourlyForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyForecastView.swift; sourceTree = "<group>"; };
 		4094C8E42A915BF2006EBE87 /* VenusWeatherMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VenusWeatherMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +71,7 @@
 			children = (
 				4050283E2A93DF2700247F32 /* DailyForecastView.swift */,
 				405028422A93E98300247F32 /* HourlyForecastView.swift */,
+				401921662A9A4C5A008E8BB4 /* HourlyForecastRow.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 			files = (
 				4050283F2A93DF2700247F32 /* DailyForecastView.swift in Sources */,
 				4094C8EA2A915BF2006EBE87 /* ContentView.swift in Sources */,
+				401921672A9A4C5A008E8BB4 /* HourlyForecastRow.swift in Sources */,
 				401921622A9965F0008E8BB4 /* Utils.swift in Sources */,
 				4094C8E82A915BF2006EBE87 /* VenusWeatherMacApp.swift in Sources */,
 				405028432A93E98300247F32 /* HourlyForecastView.swift in Sources */,

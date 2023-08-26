@@ -24,3 +24,23 @@ func format(temperature: Measurement<UnitTemperature>) -> String {
         return ""
     }
 }
+
+func format(hour: Date) -> String {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "HH:mm"
+    return formatter.string(from: hour)
+}
+
+func format(date: Date) -> String {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "EE d"
+    if Calendar.current.isDateInToday(date) { return "Today" }
+    return formatter.string(from: date)
+}
+
+func format(precipitationChance: Double) -> String {
+    let formatter = NumberFormatter()
+    formatter.numberStyle = .percent
+    let number = NSNumber(value: precipitationChance)
+    return formatter.string(from: number) ?? ""
+}

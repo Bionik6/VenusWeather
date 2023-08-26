@@ -12,8 +12,8 @@ struct VenusWeatherMacApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .frame(minWidth: 900, minHeight: 800)
+            ContentView(model: .init())
+                .frame(minWidth: 1200, minHeight: 800)
         }
     }
 }
