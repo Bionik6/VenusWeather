@@ -33,6 +33,7 @@ final class VenusModel: ObservableObject {
     }
 
     func getHourlyForecastSelectedLocation(within date: Date) async {
+
         let calendar = Calendar.current
         let startDate = calendar.startOfDay(for: date)
         let endDate = calendar.date(byAdding: .day, value: 1, to: startDate)
