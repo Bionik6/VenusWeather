@@ -1,10 +1,3 @@
-//
-//  HourlyForecast.swift
-//  VenusWeatherMac
-//
-//  Created by Ibrahima Ciss on 26/08/2023.
-//
-
 import Foundation
 import WeatherKit
 

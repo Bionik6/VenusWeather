@@ -1,10 +1,3 @@
-//
-//  Data.swift
-//  VenusWeatherMac
-//
-//  Created by Ibrahima Ciss on 25/08/2023.
-//
-
 import WeatherKit
 import Foundation
 

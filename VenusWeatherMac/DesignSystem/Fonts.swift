@@ -1,10 +1,3 @@
-//
-//  Fonts.swift
-//  VenusWeatherMac
-//
-//  Created by Ibrahima Ciss on 19/08/2023.
-//
-
 import SwiftUI
 
 struct Fonts: View {

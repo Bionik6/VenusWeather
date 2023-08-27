@@ -1,10 +1,3 @@
-//
-//  HourlyForecastRow.swift
-//  VenusWeatherMac
-//
-//  Created by Ibrahima Ciss on 26/08/2023.
-//
-
 import SwiftUI
 
 struct HourlyForecastRow: View {
@@ -50,16 +43,16 @@ struct HourlyForecastRow: View {
                     .padding(.bottom, 12)
                 Grid(verticalSpacing: 12) {
                     GridRow {
-                        HourlyForcastRowDetailView(title: "Feels Like", value: hourlyForecast.feelsLike)
-                        HourlyForcastRowDetailView(title: "Cloud Cover", value: hourlyForecast.cloudCover)
-                        HourlyForcastRowDetailView(title: "Visibility", value: hourlyForecast.visibility)
-                        HourlyForcastRowDetailView(title: "Wind Gust", value: hourlyForecast.windGust)
+                        HourlyForecastRowDetailView(title: "Feels Like", value: hourlyForecast.feelsLike)
+                        HourlyForecastRowDetailView(title: "Cloud Cover", value: hourlyForecast.cloudCover)
+                        HourlyForecastRowDetailView(title: "Visibility", value: hourlyForecast.visibility)
+                        HourlyForecastRowDetailView(title: "Wind Gust", value: hourlyForecast.windGust)
                     }
                     GridRow {
-                        HourlyForcastRowDetailView(title: "Pressure", value: hourlyForecast.pressure)
-                        HourlyForcastRowDetailView(title: "Humidity", value: hourlyForecast.humidity)
-                        HourlyForcastRowDetailView(title: "Dew Point", value: hourlyForecast.dewPoint)
-                        HourlyForcastRowDetailView(title: "UV Index", value: hourlyForecast.uvIndex)
+                        HourlyForecastRowDetailView(title: "Pressure", value: hourlyForecast.pressure)
+                        HourlyForecastRowDetailView(title: "Humidity", value: hourlyForecast.humidity)
+                        HourlyForecastRowDetailView(title: "Dew Point", value: hourlyForecast.dewPoint)
+                        HourlyForecastRowDetailView(title: "UV Index", value: hourlyForecast.uvIndex)
                     }
                 }
             }
@@ -68,8 +61,7 @@ struct HourlyForecastRow: View {
     }
 }
 
-
-struct HourlyForcastRowDetailView: View {
+struct HourlyForecastRowDetailView: View {
     private let title: String
     private let value: String
 

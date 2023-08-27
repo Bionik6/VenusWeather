@@ -1,10 +1,3 @@
-//
-//  MainContentView.swift
-//  VenusWeatherMac
-//
-//  Created by Ibrahima Ciss on 19/08/2023.
-//
-
 import SwiftUI
 import WeatherKit
 import CoreLocation
@@ -39,7 +32,6 @@ struct MainContentView: View {
             .frame(maxWidth: 1200)
             .padding(16)
         }
-
     }
 
     @ViewBuilder
@@ -54,16 +46,17 @@ struct MainContentView: View {
     }
 
     private var HEADER: some View {
-        HStack { // Header
-            Text("London, England")
+        HStack(alignment: .center, spacing: 12) { // Header
+            Text(model.selectedLocation.fullName)
                 .foregroundStyle(.primary)
                 .font(.largeTitle)
             Button(action: { }) {
-                Image(systemName: "house.circle")
+                Image(systemName: "mappin.circle.fill")
                     .font(.largeTitle)
                     .symbolVariant(.fill)
             }
             .buttonStyle(.plain)
+            .help("Pin location")
         }
         .frame(maxWidth: .infinity, alignment: .leading)
     }
@@ -132,11 +125,11 @@ struct MainContentView: View {
                 }
                 .font(.system(size: 70))
 
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 8) {
                     Text("Mostly cloudy")
-                        .fontWeight(.medium)
-                    Text("Feels like   18º")
+                    Text("Feels like 18º")
                 }
+                .font(.h6)
             }
 
             Text("The skies will be partly cloudy. The low will be 15º")
@@ -158,14 +151,5 @@ struct MainContentView: View {
 struct MainContentView_Previews: PreviewProvider {
     static var previews: some View {
         MainContentView(model: .init())
-    }
-}
-
-
-extension View {
-    func blurBackground() -> some View {
-        self
-            .background(.ultraThinMaterial)
-            .cornerRadius(12)
     }
 }

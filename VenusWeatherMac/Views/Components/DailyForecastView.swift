@@ -1,10 +1,3 @@
-//
-//  DailyForecastView.swift
-//  VenusWeatherMac
-//
-//  Created by Ibrahima Ciss on 21/08/2023.
-//
-
 import SwiftUI
 
 struct DailyForecastView: View {

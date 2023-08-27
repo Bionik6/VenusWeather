@@ -1,10 +1,3 @@
-//
-//  VenusModel.swift
-//  VenusWeatherMac
-//
-//  Created by Ibrahima Ciss on 25/08/2023.
-//
-
 import Combine
 import WeatherKit
 import CoreLocation
@@ -13,12 +6,12 @@ import CoreLocation
 final class VenusModel: ObservableObject {
     private(set) var service = WeatherService.shared
 
-    private var selectedLocation: CLLocation? = CLLocation(
+    private(set) var selectedLocation: VenusLocation = VenusLocation(
         latitude: 14.77943584488948,
-        longitude: -17.370824952178218
+        longitute: -17.370824952178218,
+        city: "Guediawaye",
+        country: "Senegal"
     )
-
-    @Published var searchText = ""
 
     @Published private(set) var currentWeather: CurrentWeather?
     @Published private(set) var dailyForecasts: [DailyForecast] = []
@@ -28,10 +21,9 @@ final class VenusModel: ObservableObject {
     @Published private(set) var dateHourlyForecasts: [HourlyForecast] = []
 
     func getForecastForSelectedLocation() async {
-        guard let selectedLocation else { return }
-        let forecast = await Task.detached(priority: .userInitiated) {
+        let forecast = await Task.detached(priority: .userInitiated) { [location = selectedLocation.clLocation] in
             try? await self.service.weather(
-                for: selectedLocation,
+                for: location,
                 including: .current, .hourly, .daily
             )
         }.value
@@ -41,19 +33,25 @@ final class VenusModel: ObservableObject {
     }
 
     func getHourlyForecastSelectedLocation(within date: Date) async {
-        guard let selectedLocation else { return }
         let calendar = Calendar.current
         let startDate = calendar.startOfDay(for: date)
         let endDate = calendar.date(byAdding: .day, value: 1, to: startDate)
         let dateHourlyResponse = try? await self.service.weather(
-            for: selectedLocation,
+            for: selectedLocation.clLocation,
             including: .hourly(startDate: startDate, endDate: endDate ?? .now)
         )
         let dailyForeCastResponse = try? await self.service.weather(
-            for: selectedLocation,
+            for: selectedLocation.clLocation,
             including: .daily(startDate: startDate, endDate: endDate ?? .now)
         )
         self.dailyForecast = dailyForeCastResponse?.forecast.first.map(DailyForecast.init)
         self.dateHourlyForecasts = dateHourlyResponse?.forecast.compactMap(HourlyForecast.init) ?? []
+    }
+
+    func select(location: VenusLocation) async {
+        self.selectedLocation = location
+        await getForecastForSelectedLocation()
+        dailyForecast = nil
+        dateHourlyForecasts = []
     }
 }
