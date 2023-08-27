@@ -16,7 +16,7 @@
 		4019216D2A9A9D93008E8BB4 /* BlurWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4019216C2A9A9D93008E8BB4 /* BlurWindow.swift */; };
 		4019216F2A9A9F6B008E8BB4 /* LocationSearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4019216E2A9A9F6B008E8BB4 /* LocationSearchResultView.swift */; };
 		401921712A9A9FC3008E8BB4 /* VenusLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401921702A9A9FC3008E8BB4 /* VenusLocation.swift */; };
-		401921732A9ABA2A008E8BB4 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401921722A9ABA2A008E8BB4 /* DetailView.swift */; };
+		401921732A9ABA2A008E8BB4 /* RightPaneDailyForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401921722A9ABA2A008E8BB4 /* RightPaneDailyForecastView.swift */; };
 		401921762A9ABAFA008E8BB4 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401921752A9ABAFA008E8BB4 /* SidebarView.swift */; };
 		4050283F2A93DF2700247F32 /* DailyForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4050283E2A93DF2700247F32 /* DailyForecastView.swift */; };
 		405028432A93E98300247F32 /* HourlyForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405028422A93E98300247F32 /* HourlyForecastView.swift */; };
@@ -41,7 +41,7 @@
 		4019216C2A9A9D93008E8BB4 /* BlurWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurWindow.swift; sourceTree = "<group>"; };
 		4019216E2A9A9F6B008E8BB4 /* LocationSearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchResultView.swift; sourceTree = "<group>"; };
 		401921702A9A9FC3008E8BB4 /* VenusLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenusLocation.swift; sourceTree = "<group>"; };
-		401921722A9ABA2A008E8BB4 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		401921722A9ABA2A008E8BB4 /* RightPaneDailyForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightPaneDailyForecastView.swift; sourceTree = "<group>"; };
 		401921752A9ABAFA008E8BB4 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 		4050283E2A93DF2700247F32 /* DailyForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecastView.swift; sourceTree = "<group>"; };
 		405028422A93E98300247F32 /* HourlyForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyForecastView.swift; sourceTree = "<group>"; };
@@ -93,7 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				401921742A9ABACA008E8BB4 /* Components */,
-				401921722A9ABA2A008E8BB4 /* DetailView.swift */,
+				401921722A9ABA2A008E8BB4 /* RightPaneDailyForecastView.swift */,
 				4094C8E92A915BF2006EBE87 /* ContentView.swift */,
 				4094C8FB2A9170ED006EBE87 /* MainContentView.swift */,
 				401921752A9ABAFA008E8BB4 /* SidebarView.swift */,
@@ -252,7 +252,7 @@
 				405028432A93E98300247F32 /* HourlyForecastView.swift in Sources */,
 				4094C8FF2A9176F0006EBE87 /* Fonts.swift in Sources */,
 				409C55552A9ACAE50063160D /* Persistence.swift in Sources */,
-				401921732A9ABA2A008E8BB4 /* DetailView.swift in Sources */,
+				401921732A9ABA2A008E8BB4 /* RightPaneDailyForecastView.swift in Sources */,
 				4019216F2A9A9F6B008E8BB4 /* LocationSearchResultView.swift in Sources */,
 				401921642A996727008E8BB4 /* VenusModel.swift in Sources */,
 				401921692A9A873A008E8BB4 /* HourlyForecast.swift in Sources */,

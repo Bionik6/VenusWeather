@@ -29,6 +29,7 @@ final class VenusModel: ObservableObject {
     }
 
     func getForecastForSelectedLocation() async {
+        self.showRightPane = false
         let todayDate = Calendar.current.startOfDay(for: .now)
         let forecast = await Task.detached(priority: .userInitiated) { [location = selectedLocation.clLocation] in
             try? await self.service.weather(
@@ -41,7 +42,6 @@ final class VenusModel: ObservableObject {
         self.hourlyForecasts = forecast?.1.compactMap(HourlyForecast.init) ?? []
         self.dailyForecasts = dayWeather.map(DailyForecast.init)
         self.todayWeather = dayWeather.first
-        self.showRightPane = false
     }
 
     func getHourlyForecastSelectedLocation(within date: Date) async {
@@ -79,6 +79,10 @@ final class VenusModel: ObservableObject {
             currentWeather: currentWeather
         )
         getFavoriteLocations()
+    }
+
+    func removeLocation() {
+        // guard let
     }
 }
 

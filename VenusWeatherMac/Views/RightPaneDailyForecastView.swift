@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct DetailView: View {
+struct RightPaneDailyForecastView: View {
     @ObservedObject private var model: VenusModel
 
     init(model: VenusModel) {
@@ -44,6 +44,6 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(model: .init())
+        RightPaneDailyForecastView(model: .init())
     }
 }

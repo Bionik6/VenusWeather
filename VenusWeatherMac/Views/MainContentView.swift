@@ -50,13 +50,6 @@ struct MainContentView: View {
             Text(model.selectedLocation.fullName)
                 .foregroundStyle(.primary)
                 .font(.largeTitle)
-            Button(action: { withAnimation { model.saveLocation() } }) {
-                Image(systemName: "mappin.circle.fill")
-                    .font(.largeTitle)
-                    .symbolVariant(.fill)
-            }
-            .buttonStyle(.plain)
-            .help("Pin location")
         }
         .frame(maxWidth: .infinity, alignment: .leading)
     }
@@ -70,7 +63,9 @@ struct MainContentView: View {
                 LazyHStack(spacing: 10) {
                     ForEach(model.dailyForecasts) { forecast in
                         Button {
-                            Task { await model.getHourlyForecastSelectedLocation(within: forecast.date) }
+                            Task {
+                                await model.getHourlyForecastSelectedLocation(within: forecast.date)
+                            }
                         } label: {
                             DailyForecastView(dailyForecast: forecast)
                         }

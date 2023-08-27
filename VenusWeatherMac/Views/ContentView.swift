@@ -26,7 +26,7 @@ struct ContentView: View {
                 if model.showRightPane {
                     HStack(spacing: 0) {
                         Divider()
-                        DetailView(model: model)
+                        RightPaneDailyForecastView(model: model)
                             .frame(width: 400)
                             .background(BlurWindow())
                     }
@@ -46,19 +46,31 @@ struct ContentView: View {
         }
         .toolbar {
             ToolbarItem {
-                Button(action: {}) {
+                Button(action: { withAnimation { model.saveLocation() } }) {
                     Label("Add Item", systemImage: "plus")
                 }
+                .help("Add to favorite places")
+            }
+            ToolbarItem(placement: .primaryAction) {
+                Button(action: { withAnimation { model.removeLocation() } }) {
+                    Label("Add Item", systemImage: "trash.fill")
+                }
+                .help("Remove place")
+            }
+            ToolbarItem(placement: .primaryAction) {
+                Button(action: { }) {
+                    Label("Add Item", systemImage: "house.fill")
+                }
+                .help("Make default place")
             }
             ToolbarItem(placement: .primaryAction) {
                 Button(action: { withAnimation { model.showRightPane.toggle() } }) {
                     Label("Add Item", systemImage: "sidebar.right")
                 }
+                .help("Show/hide right pane")
             }
         }
     }
-
-
 }
 
 struct ContentView_Previews: PreviewProvider {
