@@ -50,7 +50,7 @@ struct MainContentView: View {
             Text(model.selectedLocation.fullName)
                 .foregroundStyle(.primary)
                 .font(.largeTitle)
-            Button(action: { }) {
+            Button(action: { withAnimation { model.saveLocation() } }) {
                 Image(systemName: "mappin.circle.fill")
                     .font(.largeTitle)
                     .symbolVariant(.fill)

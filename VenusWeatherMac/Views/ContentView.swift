@@ -2,12 +2,8 @@ import SwiftUI
 import CoreLocation
 
 struct ContentView: View {
-    @State private var attributionLink: URL?
-    @State private var attributionLogo: URL?
     @ObservedObject private var model: VenusModel
     @ObservedObject private var searchModel: LocationSearchModel
-    @Environment(\.colorScheme) private var colorScheme
-    @State var visibility: NavigationSplitViewVisibility = .doubleColumn
 
     init(model: VenusModel, searchModel: LocationSearchModel) {
         self.model = model
@@ -18,37 +14,25 @@ struct ContentView: View {
     }
 
     var body: some View {
-        NavigationSplitView(columnVisibility: $visibility) {
-            VStack {
-                Text("Sidebar")
-                Spacer()
-                if let attributionLogo, let attributionLink {
-                    VStack {
-                        AsyncImage(url: attributionLogo) { image in
-                            image
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 200)
-                        } placeholder: {
-                            EmptyView()
-                        }
-                        Link("Other data sources", destination: attributionLink)
-                            .font(.miniMedium)
-                    }
-                }
-            }
-            .padding(.vertical, 12)
-            .navigationSplitViewColumnWidth(min: 240, ideal: 260, max: 320)
-        } content: {
-            MainContentView(model: model)
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .foregroundColor(Color.clear)
-                .background(BlurWindow())
+        NavigationSplitView {
+            SidebarView(model: model)
+                .padding(.vertical, 12)
+                .navigationSplitViewColumnWidth(min: 240, ideal: 260, max: 320)
         } detail: {
-            DetailView(model: model)
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(BlurWindow())
-                .navigationSplitViewColumnWidth(min: 400, ideal: 400, max: 400)
+            HStack(spacing: 0) {
+                MainContentView(model: model)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(BlurWindow())
+                if model.showRightPane {
+                    HStack(spacing: 0) {
+                        Divider()
+                        DetailView(model: model)
+                            .frame(width: 400)
+                            .background(BlurWindow())
+                    }
+                    .transition(.move(edge: model.showRightPane ? .trailing : .leading))
+                }
+            }.animation(.easeInOut(duration: 0.3), value: model.showRightPane)
         }
         .searchable(text: $searchModel.queryFragment, prompt: Text("Search for location"))
         .searchSuggestions({
@@ -57,22 +41,21 @@ struct ContentView: View {
             }
         })
         .task {
+            model.getFavoriteLocations()
             await model.getForecastForSelectedLocation()
         }
-        .task {
-            let attribution = try? await model.service.attribution
-            attributionLink = attribution?.legalPageURL
-            attributionLogo = colorScheme == .light
-            ? attribution?.combinedMarkDarkURL
-            : attribution?.combinedMarkLightURL
+        .toolbar {
+            ToolbarItem {
+                Button(action: {}) {
+                    Label("Add Item", systemImage: "plus")
+                }
+            }
+            ToolbarItem(placement: .primaryAction) {
+                Button(action: { withAnimation { model.showRightPane.toggle() } }) {
+                    Label("Add Item", systemImage: "sidebar.right")
+                }
+            }
         }
-        /* .toolbar {
-         ToolbarItem {
-         Button(action: addItem) {
-         Label("Add Item", systemImage: "plus")
-         }
-         }
-         }*/
     }
 
 
@@ -81,5 +64,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView(model: .init(), searchModel: .init())
+            .frame(width: 1200, height: 1000)
     }
 }
