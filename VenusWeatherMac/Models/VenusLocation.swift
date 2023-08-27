@@ -1,7 +1,7 @@
 import Foundation
 import CoreLocation
 
-struct VenusLocation: Sendable, Equatable, Codable {
+struct VenusLocation: Identifiable, Sendable, Equatable, Codable {
     let latitude: Double
     let longitute: Double
     let city: String?
@@ -33,5 +33,9 @@ struct VenusLocation: Sendable, Equatable, Codable {
 
     var clLocation: CLLocation {
         CLLocation(latitude: latitude, longitude: longitute)
+    }
+
+    var id: String {
+        "\(latitude):\(longitute)"
     }
 }

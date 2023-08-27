@@ -4,6 +4,7 @@
         <attribute name="condition" attributeType="String"/>
         <attribute name="currentTemperature" attributeType="Binary"/>
         <attribute name="highTemperature" attributeType="Binary"/>
+        <attribute name="identifier" optional="YES" attributeType="String"/>
         <attribute name="imageName" optional="YES" attributeType="String"/>
         <attribute name="isMainLocation" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="location" attributeType="Binary"/>

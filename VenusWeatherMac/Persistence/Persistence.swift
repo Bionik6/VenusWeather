@@ -26,12 +26,13 @@ extension PersistenceController {
         location: VenusLocation,
         currentWeather: CurrentWeather
     ) {
-        guard let location = location.data else {
+        guard let venusLocation = location.data else {
             fatalError("location couldn't be resolved")
         }
         do {
             let weatherLocation = WeatherLocation(context: container.viewContext)
-            weatherLocation.location = location
+            weatherLocation.identifier = location.id
+            weatherLocation.location = venusLocation
             weatherLocation.imageName = weather.symbolName
             weatherLocation.condition = weather.condition.description
             weatherLocation.lowTemperature = try JSONEncoder().encode(weather.lowTemperature)
@@ -54,12 +55,19 @@ extension PersistenceController {
         }
     }
 
-    func deleteWeatherLocation(_ location: WeatherLocation) {
-        container.viewContext.delete(location)
+    func deleteWeatherLocation(_ location: VenusLocation) -> Bool {
+        let fetchRequest: NSFetchRequest<WeatherLocation> = WeatherLocation.fetchRequest()
+        fetchRequest.fetchLimit = 1
+        fetchRequest.predicate = NSPredicate(format: "%K == %@", #keyPath(WeatherLocation.identifier), location.id)
         do {
+            let object = try container.viewContext.fetch(fetchRequest).first
+            guard let object else { return false }
+            container.viewContext.delete(object)
             try container.viewContext.save()
+            return true
         } catch {
-            print("Failed to save context: \(error)")
+            print("Failed to delete object: \(error)")
+            return false
         }
     }
 }

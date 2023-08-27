@@ -17,7 +17,8 @@ struct SidebarView: View {
                     FavoriteLocationView(weatherLocation: weatherLocation)
                         .contentShape(Rectangle())
                         .onTapGesture {
-                            print("tapped")
+                            guard let location = weatherLocation.venusLocation else { return }
+                            Task { await model.select(location: location) }
                         }
                 }
             }
@@ -53,16 +54,18 @@ struct FavoriteLocationView: View {
     var body: some View {
         VStack(spacing: 8) {
             HStack {
-                Text(weatherLocation.venusLocation.city ?? "")
+                Text(weatherLocation.venusLocation?.city ?? "")
                     .font(.mainMedium)
                 Spacer()
-                Label(
-                    format(temperature: weatherLocation.currentTemperatureValue),
-                    systemImage: weatherLocation.imageName
-                )
-                .symbolVariant(.fill)
-                .symbolRenderingMode(.multicolor)
-                .font(.h6Medium)
+                if let currentTemperature = weatherLocation.currentTemperatureValue {
+                    Label(
+                        format(temperature: currentTemperature),
+                        systemImage: weatherLocation.imageName
+                    )
+                    .symbolVariant(.fill)
+                    .symbolRenderingMode(.multicolor)
+                    .font(.h6Medium)
+                }
             }
             HStack {
                 Text(weatherLocation.condition)

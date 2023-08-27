@@ -12,6 +12,7 @@ extension WeatherLocation: Identifiable {
         return NSFetchRequest<WeatherLocation>(entityName: "WeatherLocation")
     }
 
+    @NSManaged public var identifier: String
     @NSManaged public var location: Data
     @NSManaged public var highTemperature: Data
     @NSManaged public var lowTemperature: Data
@@ -22,47 +23,48 @@ extension WeatherLocation: Identifiable {
 }
 
 extension WeatherLocation {
-    var venusLocation: VenusLocation {
+    var venusLocation: VenusLocation? {
         guard let location = try? JSONDecoder()
             .decode(VenusLocation.self, from: location)
         else {
-            fatalError("couldn't decode location")
+            return nil
         }
         return location
     }
 
-    var currentTemperatureValue: Measurement<UnitTemperature> {
+    var currentTemperatureValue: Measurement<UnitTemperature>? {
         guard let currentTemperature = try? JSONDecoder()
             .decode(Measurement<UnitTemperature>.self, from: currentTemperature)
         else {
-            fatalError("couldn't decode current temperature")
+            return nil
         }
         return currentTemperature
     }
 
-    var lowTemparatureValue: Measurement<UnitTemperature> {
+    var lowTemperatureValue: Measurement<UnitTemperature>? {
         guard let lowTemperature = try? JSONDecoder()
             .decode(Measurement<UnitTemperature>.self, from: lowTemperature)
         else {
-            fatalError("couldn't decode low temperature")
+            return nil
         }
         return lowTemperature
     }
 
-    var highTemparatureValue: Measurement<UnitTemperature> {
+    var highTemperatureValue: Measurement<UnitTemperature>? {
         guard let highTemperature = try? JSONDecoder()
             .decode(Measurement<UnitTemperature>.self, from: highTemperature)
         else {
-            fatalError("couldn't decode high temperature")
+            return nil
         }
         return highTemperature
     }
 
     var lowHighTemperature: String {
-        "L:"
-        + format(temperature: lowTemparatureValue)
+        guard let lowTemperatureValue, let highTemperatureValue else { return "" }
+        return "L:"
+        + format(temperature: lowTemperatureValue)
         + "  "
         + "H:"
-        + format(temperature: highTemparatureValue)
+        + format(temperature: highTemperatureValue)
     }
 }

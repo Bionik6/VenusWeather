@@ -82,7 +82,12 @@ final class VenusModel: ObservableObject {
     }
 
     func removeLocation() {
-        // guard let
+        let result = PersistenceController
+            .shared
+            .deleteWeatherLocation(selectedLocation)
+        if result {
+            weatherLocations.removeAll { $0.identifier == selectedLocation.id }
+        }
     }
 }
 
