@@ -1,5 +1,5 @@
 # Building polished macOS apps with SwiftUI
-<img src="images/screenshot.png" />
+<img src="images/screenshot.jpeg" />
 
 A workshop to help you reuse your SwiftUI skills to build an elegant macOS app
 
@@ -10,7 +10,7 @@ Since the app is using WeatherKit, you need to register it in the app developer 
 Go to the [Identifier section](https://developer.apple.com/account/resources/identifiers/list), register the app and change its capabilities. You need to activate it in two places actually.
 | Capabilities tab | App services tab |
 |-|-|
-| <img src="images/capabilities.png" /> | <img src="images/app-services.png" /> |
+| <img src="images/capabilities.jpeg" /> | <img src="images/app-services.jpeg" /> |
 
 
 ### Resources
