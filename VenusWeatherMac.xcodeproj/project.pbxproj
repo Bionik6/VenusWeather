@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4012259C2AA60B96004902F1 /* Shimmering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4012259B2AA60B96004902F1 /* Shimmering.swift */; };
+		4012259E2AA60BD2004902F1 /* RedactAndShimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4012259D2AA60BD2004902F1 /* RedactAndShimmer.swift */; };
 		4019215F2A996512008E8BB4 /* DailyForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4019215E2A996512008E8BB4 /* DailyForecast.swift */; };
 		401921622A9965F0008E8BB4 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401921612A9965F0008E8BB4 /* Utils.swift */; };
 		401921642A996727008E8BB4 /* VenusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401921632A996727008E8BB4 /* VenusModel.swift */; };
@@ -21,17 +23,20 @@
 		4050283F2A93DF2700247F32 /* DailyForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4050283E2A93DF2700247F32 /* DailyForecastView.swift */; };
 		405028432A93E98300247F32 /* HourlyForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405028422A93E98300247F32 /* HourlyForecastView.swift */; };
 		4094C8E82A915BF2006EBE87 /* VenusWeatherMacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4094C8E72A915BF2006EBE87 /* VenusWeatherMacApp.swift */; };
-		4094C8EA2A915BF2006EBE87 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4094C8E92A915BF2006EBE87 /* ContentView.swift */; };
+		4094C8EA2A915BF2006EBE87 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4094C8E92A915BF2006EBE87 /* MainView.swift */; };
 		4094C8EC2A915BF3006EBE87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4094C8EB2A915BF3006EBE87 /* Assets.xcassets */; };
 		4094C8EF2A915BF3006EBE87 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4094C8EE2A915BF3006EBE87 /* Preview Assets.xcassets */; };
-		4094C8FC2A9170ED006EBE87 /* MainContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4094C8FB2A9170ED006EBE87 /* MainContentView.swift */; };
+		4094C8FC2A9170ED006EBE87 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4094C8FB2A9170ED006EBE87 /* ContentView.swift */; };
 		4094C8FF2A9176F0006EBE87 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4094C8FE2A9176F0006EBE87 /* Fonts.swift */; };
 		409C55552A9ACAE50063160D /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409C55542A9ACAE50063160D /* Persistence.swift */; };
 		409C55582A9ACB320063160D /* VenusWeather.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 409C55562A9ACB320063160D /* VenusWeather.xcdatamodeld */; };
 		409C55672A9AD3400063160D /* WeatherLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409C55652A9AD3400063160D /* WeatherLocation.swift */; };
+		40DA5EB72AA3AE9600969250 /* Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DA5EB62AA3AE9600969250 /* Spacing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4012259B2AA60B96004902F1 /* Shimmering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shimmering.swift; sourceTree = "<group>"; };
+		4012259D2AA60BD2004902F1 /* RedactAndShimmer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedactAndShimmer.swift; sourceTree = "<group>"; };
 		4019215E2A996512008E8BB4 /* DailyForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecast.swift; sourceTree = "<group>"; };
 		401921612A9965F0008E8BB4 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		401921632A996727008E8BB4 /* VenusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenusModel.swift; sourceTree = "<group>"; };
@@ -47,15 +52,16 @@
 		405028422A93E98300247F32 /* HourlyForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyForecastView.swift; sourceTree = "<group>"; };
 		4094C8E42A915BF2006EBE87 /* VenusWeatherMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VenusWeatherMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4094C8E72A915BF2006EBE87 /* VenusWeatherMacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenusWeatherMacApp.swift; sourceTree = "<group>"; };
-		4094C8E92A915BF2006EBE87 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		4094C8E92A915BF2006EBE87 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		4094C8EB2A915BF3006EBE87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4094C8EE2A915BF3006EBE87 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4094C8F52A915BF3006EBE87 /* VenusWeatherMac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VenusWeatherMac.entitlements; sourceTree = "<group>"; };
-		4094C8FB2A9170ED006EBE87 /* MainContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentView.swift; sourceTree = "<group>"; };
+		4094C8FB2A9170ED006EBE87 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4094C8FE2A9176F0006EBE87 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		409C55542A9ACAE50063160D /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		409C55572A9ACB320063160D /* VenusWeather.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VenusWeather.xcdatamodel; sourceTree = "<group>"; };
 		409C55652A9AD3400063160D /* WeatherLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLocation.swift; sourceTree = "<group>"; };
+		40DA5EB62AA3AE9600969250 /* Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacing.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +100,9 @@
 			children = (
 				401921742A9ABACA008E8BB4 /* Components */,
 				401921722A9ABA2A008E8BB4 /* RightPaneDailyForecastView.swift */,
-				4094C8E92A915BF2006EBE87 /* ContentView.swift */,
-				4094C8FB2A9170ED006EBE87 /* MainContentView.swift */,
+				4019216E2A9A9F6B008E8BB4 /* LocationSearchResultView.swift */,
+				4094C8E92A915BF2006EBE87 /* MainView.swift */,
+				4094C8FB2A9170ED006EBE87 /* ContentView.swift */,
 				401921752A9ABAFA008E8BB4 /* SidebarView.swift */,
 			);
 			path = Views;
@@ -107,7 +114,6 @@
 				4050283E2A93DF2700247F32 /* DailyForecastView.swift */,
 				405028422A93E98300247F32 /* HourlyForecastView.swift */,
 				401921662A9A4C5A008E8BB4 /* HourlyForecastRow.swift */,
-				4019216E2A9A9F6B008E8BB4 /* LocationSearchResultView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -157,6 +163,9 @@
 			children = (
 				4094C8FE2A9176F0006EBE87 /* Fonts.swift */,
 				4019216C2A9A9D93008E8BB4 /* BlurWindow.swift */,
+				40DA5EB62AA3AE9600969250 /* Spacing.swift */,
+				4012259B2AA60B96004902F1 /* Shimmering.swift */,
+				4012259D2AA60BD2004902F1 /* RedactAndShimmer.swift */,
 			);
 			path = DesignSystem;
 			sourceTree = "<group>";
@@ -242,8 +251,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4019216B2A9A9722008E8BB4 /* LocationSearchModel.swift in Sources */,
+				40DA5EB72AA3AE9600969250 /* Spacing.swift in Sources */,
 				4050283F2A93DF2700247F32 /* DailyForecastView.swift in Sources */,
-				4094C8EA2A915BF2006EBE87 /* ContentView.swift in Sources */,
+				4094C8EA2A915BF2006EBE87 /* MainView.swift in Sources */,
 				409C55582A9ACB320063160D /* VenusWeather.xcdatamodeld in Sources */,
 				4019216D2A9A9D93008E8BB4 /* BlurWindow.swift in Sources */,
 				401921672A9A4C5A008E8BB4 /* HourlyForecastRow.swift in Sources */,
@@ -252,6 +262,7 @@
 				405028432A93E98300247F32 /* HourlyForecastView.swift in Sources */,
 				4094C8FF2A9176F0006EBE87 /* Fonts.swift in Sources */,
 				409C55552A9ACAE50063160D /* Persistence.swift in Sources */,
+				4012259E2AA60BD2004902F1 /* RedactAndShimmer.swift in Sources */,
 				401921732A9ABA2A008E8BB4 /* RightPaneDailyForecastView.swift in Sources */,
 				4019216F2A9A9F6B008E8BB4 /* LocationSearchResultView.swift in Sources */,
 				401921642A996727008E8BB4 /* VenusModel.swift in Sources */,
@@ -259,7 +270,8 @@
 				401921712A9A9FC3008E8BB4 /* VenusLocation.swift in Sources */,
 				401921762A9ABAFA008E8BB4 /* SidebarView.swift in Sources */,
 				409C55672A9AD3400063160D /* WeatherLocation.swift in Sources */,
-				4094C8FC2A9170ED006EBE87 /* MainContentView.swift in Sources */,
+				4012259C2AA60B96004902F1 /* Shimmering.swift in Sources */,
+				4094C8FC2A9170ED006EBE87 /* ContentView.swift in Sources */,
 				4019215F2A996512008E8BB4 /* DailyForecast.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

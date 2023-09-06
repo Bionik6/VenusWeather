@@ -1,20 +1,5 @@
 import SwiftUI
 
-struct Fonts: View {
-    var body: some View {
-        Text("Hello, World!")
-            .font(.h1)
-    }
-}
-
-struct Fonts_Previews: PreviewProvider {
-    static var previews: some View {
-        Fonts()
-            .frame(width: 500, height: 500)
-    }
-}
-
-
 extension Font {
     static let h1 = makeFont(size: 80, weight: .medium)
 
@@ -49,6 +34,7 @@ extension Font {
 
     static let weatherIconBig = makeFont(size: 40, weight: .bold)
     static let weatherIconMedium = makeFont(size: 32, weight: .medium)
+    static let weatherIconSmall = makeFont(size: 28, weight: .medium)
 
 
     private static func makeFont(

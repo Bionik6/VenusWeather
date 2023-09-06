@@ -1,4 +1,5 @@
 import Combine
+import SwiftUI
 import WeatherKit
 import CoreLocation
 
@@ -6,37 +7,39 @@ import CoreLocation
 final class VenusModel: ObservableObject {
     private(set) var service = WeatherService.shared
 
-    private(set) var selectedLocation: VenusLocation = VenusLocation(
+    @Published var selectedLocation: VenusLocation = VenusLocation(
         latitude: 14.77943584488948,
         longitute: -17.370824952178218,
         city: "Guediawaye",
         country: "Senegal"
     )
 
+    var isLoadingForecast = false
+    var isLoadingHourlyForecast = false
     @Published var showRightPane = false 
-    @Published private(set) var weatherLocations: [WeatherLocation] = []
+    @Published private(set) var favoriteLocations: [FavoriteLocation] = []
 
     @Published private(set) var todayWeather: DayWeather?
     @Published private(set) var currentWeather: CurrentWeather?
-    @Published private(set) var dailyForecasts: [DailyForecast] = []
-    @Published private(set) var hourlyForecasts: [HourlyForecast] = []
+    @Published private(set) var dailyForecasts: [DailyForecast] = .sample
+    @Published private(set) var hourlyForecasts: [HourlyForecast] = .sample
 
     @Published private(set) var dailyForecast: DailyForecast?
-    @Published private(set) var dateHourlyForecasts: [HourlyForecast] = []
+    @Published private(set) var dateHourlyForecasts: [HourlyForecast] = .sample
 
     func getFavoriteLocations() {
-        self.weatherLocations = PersistenceController.shared.getAllLocations()
+        self.favoriteLocations = PersistenceController.shared.getAllLocations()
     }
 
     func getForecastForSelectedLocation() async {
         self.showRightPane = false
+        isLoadingForecast = true
+        defer { isLoadingForecast = false }
         let todayDate = Calendar.current.startOfDay(for: .now)
-        let forecast = await Task.detached(priority: .userInitiated) { [location = selectedLocation.clLocation] in
-            try? await self.service.weather(
-                for: location,
-                including: .current, .hourly, .daily
-            )
-        }.value
+        let forecast = try? await self.service.weather(
+            for: selectedLocation.clLocation,
+            including: .current, .hourly, .daily
+        )
         let dayWeather = forecast?.2.filter { $0.date >= todayDate } ?? []
         self.currentWeather = forecast?.0
         self.hourlyForecasts = forecast?.1.compactMap(HourlyForecast.init) ?? []
@@ -46,19 +49,22 @@ final class VenusModel: ObservableObject {
 
     func getHourlyForecastSelectedLocation(within date: Date) async {
         self.showRightPane = true
+        self.isLoadingHourlyForecast = true
+        defer { isLoadingHourlyForecast = false }
         let calendar = Calendar.current
         let startDate = calendar.startOfDay(for: date)
         let endDate = calendar.date(byAdding: .day, value: 1, to: startDate)
-        let dateHourlyResponse = try? await self.service.weather(
+        async let dateHourlyResponse = try? await self.service.weather(
             for: selectedLocation.clLocation,
             including: .hourly(startDate: startDate, endDate: endDate ?? .now)
         )
-        let dailyForeCastResponse = try? await self.service.weather(
+        async let dailyForeCastResponse = try? await self.service.weather(
             for: selectedLocation.clLocation,
             including: .daily(startDate: startDate, endDate: endDate ?? .now)
         )
-        self.dailyForecast = dailyForeCastResponse?.forecast.first.map(DailyForecast.init)
-        self.dateHourlyForecasts = dateHourlyResponse?.forecast.compactMap(HourlyForecast.init) ?? []
+        let result = await (dateHourlyResponse, dailyForeCastResponse)
+        self.dailyForecast = result.1?.forecast.first.map(DailyForecast.init)
+        self.dateHourlyForecasts = result.0?.forecast.compactMap(HourlyForecast.init) ?? []
     }
 
     func select(location: VenusLocation) async {
@@ -66,6 +72,9 @@ final class VenusModel: ObservableObject {
         await getForecastForSelectedLocation()
         dailyForecast = nil
         dateHourlyForecasts = []
+        if PersistenceController.shared.findWeatherLocation(from: location) != nil {
+            saveLocation()
+        }
     }
 
     func saveLocation() {
@@ -73,12 +82,18 @@ final class VenusModel: ObservableObject {
             print("Can't get today/current weather")
             return
         }
-        PersistenceController.shared.save(
+        guard let weatherLocation = PersistenceController.shared.save(
             weather: todayWeather,
             location: selectedLocation,
             currentWeather: currentWeather
-        )
-        getFavoriteLocations()
+        ) else { return }
+        if let idx = favoriteLocations.lazy.firstIndex(where: { $0.identifier == weatherLocation.identifier }) {
+            let location = FavoriteLocation(weatherLocation: weatherLocation)
+            favoriteLocations[idx] = location
+        } else {
+            let location = FavoriteLocation(weatherLocation: weatherLocation)
+            favoriteLocations.append(location)
+        }
     }
 
     func removeLocation() {
@@ -86,8 +101,7 @@ final class VenusModel: ObservableObject {
             .shared
             .deleteWeatherLocation(selectedLocation)
         if result {
-            weatherLocations.removeAll { $0.identifier == selectedLocation.id }
+            favoriteLocations.removeAll { $0.identifier == selectedLocation.id }
         }
     }
 }
-

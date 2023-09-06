@@ -1,7 +1,7 @@
 import Foundation
 import CoreLocation
 
-struct VenusLocation: Identifiable, Sendable, Equatable, Codable {
+struct VenusLocation: Identifiable, Sendable, Equatable, Codable, Hashable {
     let latitude: Double
     let longitute: Double
     let city: String?

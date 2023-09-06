@@ -21,16 +21,29 @@ extension DailyForecast {
     }
 }
 
-#if DEBUG
-extension DailyForecast {
-
-    static let dummy = DailyForecast(
-        id: UUID().uuidString,
-        date: .now,
-        imageName: "cloud.sun.bolt.fill",
-        condition: "Partly cloudy",
-        lowTemperature: "28.0º",
-        highTempterature: "31.0º"
-    )
+extension Array where Element == DailyForecast {
+    static let sample = [
+        DailyForecast.dummy(),
+        DailyForecast.dummy(),
+        DailyForecast.dummy(),
+        DailyForecast.dummy(),
+        DailyForecast.dummy(),
+        DailyForecast.dummy(),
+        DailyForecast.dummy(),
+        DailyForecast.dummy(),
+        DailyForecast.dummy()
+    ]
 }
-#endif
+
+extension DailyForecast {
+    static func dummy(id: String = UUID().uuidString) -> DailyForecast {
+        .init(
+            id: id,
+            date: .now,
+            imageName: "cloud.sun.fill",
+            condition: "Partly cloudy",
+            lowTemperature: "28.0º",
+            highTempterature: "31.0º"
+        )
+    }
+}

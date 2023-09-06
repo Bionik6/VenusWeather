@@ -11,7 +11,6 @@ struct BlurWindow: NSViewRepresentable {
     }
 
     func updateNSView(_ nsView: NSVisualEffectView, context: Context) {
-
     }
 }
 

@@ -60,6 +60,6 @@ struct HourlyForecastView: View {
 
 struct HourlyForecastView_Previews: PreviewProvider {
     static var previews: some View {
-         HourlyForecastView(hourlyForecast: .dummy)
+        HourlyForecastView(hourlyForecast: .dummy())
     }
 }

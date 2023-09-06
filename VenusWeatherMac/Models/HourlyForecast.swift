@@ -39,24 +39,47 @@ extension HourlyForecast {
     }
 }
 
-#if DEBUG
-extension HourlyForecast {
-    static let dummy = HourlyForecast(
-        id: UUID().uuidString,
-        date: .now,
-        wind: "11 km/h",
-        uvIndex: "0",
-        windGust: "34 km/h",
-        pressure: "1015 mb",
-        humidity: "86%",
-        dewPoint: "26º",
-        feelsLike: "31º",
-        imageName: "could.sun.bolt.fill",
-        condition: "Partly cloudy",
-        cloudCover: "54%",
-        visibility: "15 km",
-        temperature: "28º",
-        precipitationChance: "1%"
-    )
+extension Array where Element == HourlyForecast {
+    static let sample = [
+        HourlyForecast.dummy(),
+        HourlyForecast.dummy(),
+        HourlyForecast.dummy(),
+        HourlyForecast.dummy(),
+        HourlyForecast.dummy(),
+        HourlyForecast.dummy(),
+        HourlyForecast.dummy(),
+        HourlyForecast.dummy(),
+        HourlyForecast.dummy(),
+        HourlyForecast.dummy(),
+        HourlyForecast.dummy(),
+        HourlyForecast.dummy(),
+        HourlyForecast.dummy(),
+        HourlyForecast.dummy(),
+        HourlyForecast.dummy(),
+        HourlyForecast.dummy(),
+        HourlyForecast.dummy(),
+        HourlyForecast.dummy(),
+    ]
 }
-#endif
+
+extension HourlyForecast {
+    static func dummy(id: String = UUID().uuidString) -> HourlyForecast {
+        .init(
+            id: id,
+            date: .now,
+            wind: "11 km/h",
+            uvIndex: "0",
+            windGust: "34 km/h",
+            pressure: "1015 mb",
+            humidity: "86%",
+            dewPoint: "26º",
+            feelsLike: "31º",
+            imageName: "cloud.sun.bolt.fill",
+            condition: "Partly cloudy",
+            cloudCover: "54%",
+            visibility: "15 km",
+            temperature: "28º",
+            precipitationChance: "1%"
+        )
+    }
+}

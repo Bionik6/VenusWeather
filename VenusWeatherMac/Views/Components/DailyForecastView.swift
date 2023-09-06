@@ -35,6 +35,6 @@ struct DailyForecastView: View {
 
 struct DailyForecastView_Previews: PreviewProvider {
     static var previews: some View {
-        DailyForecastView(dailyForecast: .dummy)
+        DailyForecastView(dailyForecast: .dummy())
     }
 }

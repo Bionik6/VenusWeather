@@ -18,7 +18,7 @@ struct RightPaneDailyForecastView: View {
                             .symbolRenderingMode(.multicolor)
                             .symbolVariant(.fill)
                             .font(.h4Bold)
-                        Text("\(forecast.highTempterature) | \(forecast.lowTemperature)")
+                        Text("\(forecast.lowTemperature) | \(forecast.highTempterature)")
                             .font(.h3)
                     }
                     Text(forecast.condition)
@@ -31,6 +31,7 @@ struct RightPaneDailyForecastView: View {
                 Grid(alignment: .leading, verticalSpacing: 16.0) {
                     ForEach(model.dateHourlyForecasts) { forecast in
                         HourlyForecastRow(hourlyForecast: forecast)
+                            .redactAndShimmer(condition: model.isLoadingHourlyForecast)
                     }
                 }
                 .padding(12)
