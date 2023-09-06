@@ -1,9 +1,9 @@
-# Building polished macOS apps with SwiftUI
+# Making polished macOS apps with SwiftUI
 <img src="images/screenshot.jpeg" />
 
-A workshop to help you reuse your SwiftUI skills to build an elegant macOS app
+A workshop to help you realise how easy it is to build beautiful and fully functional macOS apps with SwiftUI.
 
-Thank you so much for attending my workshop. I hope you'll be excited about building a macOS app in a near future! You can always reach out to me on [Twitter](https://x.com/bionik6).
+I hope you'll be excited about building a macOS app in a near future! Feel free to reach out to me on [Twitter](https://x.com/bionik6).
 
 ### Important note
 Since the app is using WeatherKit, you need to register it in the app developer console.
